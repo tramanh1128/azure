@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        .container {
+        display: grid;
+        grid-template-columns: 49% 49%;
+        grid-template-rows: 10em 10em;
+        gap: 1%;
+        background-color: AliceBlue;
+        margin: 2em;
+        padding: 2em;
+        }
+        .cell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3em;
+        }
+
+        #divA {
+            background-color: gray;
+        }
+
+        #divB {
+            background-color: blue;
+        }
+
+        #divC {
+            background-color: blue;
+        }
+
+        #divD {
+            background-color: blue;
+        }
+
+        </style>
+    </head>
+    <body id="body" onload="registerAllEvents()">
+        <div class="container">
+        <div id="divA" class="cell" onclick="changeColor()">A</div>
+        <div id="divB" class="cell" onmouseover="changeColorB()">B</div>
+        <div id="divC" class="cell" onmouseout="changeColorC()">C</div>
+        <div id="divD" class="cell">D</div>
+        <script>
+            function changeColor() {
+                document.getElementById('divA').style.backgroundColor = 'yellow';    
+            }
+            var cnt = 0;
+            function changeColorB() {
+                var color = ['blue', 'lime', 'red', 'yellow', 'green'];
+                document.getElementById('divB').style.backgroundColor = color[cnt%5];
+                cnt++;    
+            }
+            
+            function changeColorC() {
+                document.getElementById('divC').style.backgroundColor = 'green';    
+            }
+
+        </script>
+    </body>
+</html>
