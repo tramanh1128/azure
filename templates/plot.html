@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        ToothPaste:
+        <input type="text" id="ToothPaste" name="ToothPaste"><br>
+        FaceCream:
+        <input type="text" id="FaceCream" name="FaceCream"><br>
+        FaseWash:
+        <input type="text" id="FaseWash" name="FaseWash"><br>
+        Bathing soap:
+        <input type="text" id="BathingSoap" name="BathingSoap"><br>
+        Shampoo:
+        <input type="text" id="Shampoo" name="Shampoo"><br>
+        Moisturizer:
+        <input type="text" id="Moisturizer" name="Moisturizer"><br>
+        <button onclick="submitForm()">Click</button>
+        <img id="myImage" src="" style="width:300px">
+        <script>
+            async function submitForm() {
+                let ToothPaste = document.getElementById("ToothPaste").value;
+                let FaceCream = document.getElementById("FaceCream").value;
+                let FaseWash = document.getElementById("FaseWash").value;
+                let BathingSoap = document.getElementById("BathingSoap").value;
+                let Shampoo = document.getElementById("Shampoo").value;
+                let Moisturizer = document.getElementById("Moisturizer").value;
+
+                let form = new FormData();
+                form.append("ToothPaste", ToothPaste);
+                form.append("FaceCream", FaceCream);
+                form.append("FaseWash", FaseWash);
+                form.append("BathingSoap", BathingSoap);
+                form.append("Shampoo", Shampoo);
+                form.append("Moisturizer", Moisturizer);
+
+                const response = await fetch('/numbers', {
+                    method: 'POST',
+                    body: form,
+                });
+
+                const imgSrc = await response.text();
+                document.getElementById('myImage').src = imgSrc;
+            }
+        </script>
+    </body>
+</html>
