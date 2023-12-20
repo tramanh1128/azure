@@ -2,6 +2,7 @@ from flask import Flask, request, session, render_template
 import datetime
 import uuid
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 app = Flask(__name__)
@@ -49,7 +50,7 @@ def numbers():
     labels = ['ToothPaste', 'FaceCream', 'FaseWash', 'BathingSoap', 'Shampoo', 'Moisturizer']
 
     plt.clf()
-    ax = plt.subplots()
+    fig,ax = plt.subplots()
     pie = ax.pie(data, labels=labels, autopct='%1.1f%%', startangle=140)
     
     plt.title('Distribution of Products')  # Added title
