@@ -1,6 +1,8 @@
-from flask import Flask, request, session
+from flask import Flask, request, session, render_template
 import datetime
 import uuid
+import matplotlib.pyplot as plt
+
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
